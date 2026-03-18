@@ -1,0 +1,11 @@
+body {
+  overflow-x: hidden;
+}
+
+.bg-dark {
+  background-color: #000 !important;
+}
+
+.bg-body-tertiary {
+  background-color: #f8f9fa !important;
+}
