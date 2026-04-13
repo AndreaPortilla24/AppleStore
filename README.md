@@ -1,4 +1,4 @@
-# 🍎 AppleStore — Proyecto Académico
+# 🍎 AppleStore
 
 E-commerce inspirado en Apple Store con Spring Boot + React + MySQL.
 
