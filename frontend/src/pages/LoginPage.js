@@ -20,7 +20,7 @@ export function LoginPage() {
       const data = res.data;
       login({
         idUsuario: data.idUsuario, nombre: data.nombre, apellido: data.apellido,
-        correo: data.correo, rol: data.rol
+        correo: data.correo, direccion: data.direccion, rol: data.rol
       }, data.token);
       toast.success(`¡Bienvenido, ${data.nombre}!`);
       if (data.rol === 'ADMINISTRADOR') navigate('/admin/dashboard');
