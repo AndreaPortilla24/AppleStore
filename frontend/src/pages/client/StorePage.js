@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Star, Package } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { productosApi } from 'api';
@@ -15,12 +15,18 @@ export function StorePage() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const { addItem } = useCart();
   const navigate = useNavigate();
+  const location = useLocation();
 
-  useEffect(() => {
+  const loadStoreData = () => {
+    setLoading(true);
     Promise.all([productosApi.getAll(), productosApi.getCategorias()])
       .then(([p, c]) => { setProducts(p.data); setCategories(c.data); })
       .finally(() => setLoading(false));
-  }, []);
+  };
+
+  useEffect(() => {
+    loadStoreData();
+  }, [location.key]);
 
   const filtered = activeCategory
     ? products.filter(p => p.categoria === activeCategory)
