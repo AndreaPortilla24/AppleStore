@@ -24,6 +24,7 @@ public class AuthDTOs {
         private String correo;
         private String nombre;
         private String apellido;
+        private String direccion;
         private String rol;
         private Long idUsuario;
 
@@ -32,6 +33,7 @@ public class AuthDTOs {
             this.correo = usuario.getCorreo();
             this.nombre = usuario.getNombre();
             this.apellido = usuario.getApellido();
+            this.direccion = usuario.getDireccion();
             this.rol = usuario.getRol().name();
             this.idUsuario = usuario.getIdUsuario();
         }
