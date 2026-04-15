@@ -10,7 +10,7 @@ export function StoreNavbar({ activeCategory, onCategoryChange, categories }) {
   const { count, setIsOpen } = useCart();
   const navigate = useNavigate();
 
-  const handleLogout = () => { logout(); navigate('/login'); };
+  const handleLogout = () => { logout(); navigate('/store'); };
 
   return (
     <nav className="navbar">

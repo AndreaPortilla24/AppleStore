@@ -41,6 +41,14 @@ export function LoginPage() {
           <Apple size={40} color="var(--accent)" style={{ marginBottom: 16 }} />
           <h1 style={{ fontSize: 32, fontWeight: 700, letterSpacing: -1 }}>Iniciar sesión</h1>
           <p style={{ color: 'var(--text-secondary)', marginTop: 8 }}>AppleStore — Accede a tu cuenta</p>
+          <button
+            type="button"
+            className="btn btn-ghost btn-sm"
+            style={{ marginTop: 16 }}
+            onClick={() => navigate('/store')}
+          >
+            Volver a la tienda
+          </button>
         </div>
         <div className="card">
           <form onSubmit={handleSubmit}>

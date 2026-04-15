@@ -21,7 +21,7 @@ function NavItem({ to, icon: Icon, label }) {
 export function AdminSidebar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const handleLogout = () => { logout(); navigate('/login'); };
+  const handleLogout = () => { logout(); navigate('/store'); };
 
   return (
     <div className="sidebar">
@@ -58,7 +58,7 @@ export function AdminSidebar() {
 export function EmpleadoSidebar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const handleLogout = () => { logout(); navigate('/login'); };
+  const handleLogout = () => { logout(); navigate('/store'); };
 
   return (
     <div className="sidebar">
