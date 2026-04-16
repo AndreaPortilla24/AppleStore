@@ -59,7 +59,8 @@ class ReporteController {
         reporte.setProductosConStock((long) productoRepository.findProductosDisponibles().size());
 
         BigDecimal ventas = pedidoRepository.findAll().stream()
-            .filter(p -> p.getEstado() == Pedido.Estado.ENTREGADO)
+            .filter(p -> p.getTipoPedido() == Pedido.TipoPedido.COMPRA)
+            .filter(p -> p.getEstado() != Pedido.Estado.CANCELADO)
             .flatMap(p -> p.getDetalles().stream())
             .map(d -> d.getPrecioUnitario().multiply(BigDecimal.valueOf(d.getCantidad())))
             .reduce(BigDecimal.ZERO, BigDecimal::add);

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Plus, Edit, Trash2, Search, Package } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { productosApi } from 'api';
@@ -8,6 +9,7 @@ import { Modal, ConfirmModal, StatusBadge, formatCurrency, LoadingSpinner } from
 const EMPTY_FORM = { nombre: '', categoria: '', modelo: '', estado: 'ACTIVO', invDisponible: 0, invSeparado: 0, precio: '', imagenUrl: '', descripcion: '' };
 
 export function AdminProductos() {
+  const location = useLocation();
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -17,8 +19,11 @@ export function AdminProductos() {
   const [form, setForm] = useState(EMPTY_FORM);
   const [deleting, setDeleting] = useState(null);
 
-  const load = () => productosApi.getAllAdmin().then(r => setProductos(r.data)).finally(() => setLoading(false));
-  useEffect(() => { load(); }, []);
+  const load = () => {
+    setLoading(true);
+    return productosApi.getAllAdmin().then(r => setProductos(r.data)).finally(() => setLoading(false));
+  };
+  useEffect(() => { load(); }, [location.key]);
 
   const openCreate = () => { setEditing(null); setForm(EMPTY_FORM); setShowModal(true); };
   const openEdit = (p) => { setEditing(p); setForm({ ...p }); setShowModal(true); };

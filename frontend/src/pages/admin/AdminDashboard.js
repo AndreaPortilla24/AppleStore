@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ShoppingBag, Package, Users, TrendingUp, Clock, CheckCircle } from 'lucide-react';
 import { reportesApi } from 'api';
 import { DashboardLayout } from 'components/layout/Sidebar';
@@ -20,12 +21,18 @@ const STAT_CONFIG = [
 const PIE_COLORS = ['#2997ff', '#ff453a'];
 
 export function AdminDashboard() {
+  const location = useLocation();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const loadDashboard = () => {
+    setLoading(true);
     reportesApi.getConsolidado().then(r => setData(r.data)).finally(() => setLoading(false));
-  }, []);
+  };
+
+  useEffect(() => {
+    loadDashboard();
+  }, [location.key]);
 
   if (loading) return <DashboardLayout role="admin"><LoadingSpinner /></DashboardLayout>;
 
