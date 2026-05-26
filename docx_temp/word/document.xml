@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:body>
+    <w:p><w:r><w:t>Implementación</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Resumen: Descripción técnica y pasos necesarios para desplegar y poner en producción la aplicación AppleStore (backend Java Spring Boot + frontend React + MySQL).</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Alcance: Implementación local y preparación para despliegue en staging/producción.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Requisitos previos: Java 17+, Maven 3.8+; Node.js 18+; MySQL 8+; acceso al repositorio y secrets manager.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Arquitectura y componentes: Backend Spring Boot 3.2 (puerto 8080), Frontend React 18 (puerto 3000 en dev), BD MySQL 'applestore_db', Auditoría en 'Audit_log'.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Pasos de implementación (resumen): Preparar BD; Configurar secretos; Backend: mvn clean package && mvn spring-boot:run; Frontend: npm install && npm start; Verificar endpoints; Añadir migraciones; Ejecutar tests; Configurar CI/CD.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Despliegue sugerido: Backend en JAR/imagen Docker; Frontend en CDN/servicio estático; BD gestionada con backups.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Seguridad: HTTPS, rotación de JWT secret, escaneo de dependencias, cabeceras de seguridad, no almacenar secretos en repo.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Monitoreo: Logging estructurado, métricas Prometheus, dashboards Grafana, alertas para errores y latencia.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Backups y rollback: Backups diarios, pruebas de restauración, migraciones reversibles, versionado de artefactos.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Checklist: Tests pasan; builds exitosos; secrets en manager; migraciones probadas; monitoreo activo; plan de rollback.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Responsabilidades: DevOps, Backend dev, Frontend dev, QA.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Tiempo estimado: Preparación infra & BD 1–2 días; CI/CD 1–2 días; Tests 1 día; Ajustes seguridad 1–2 días.</w:t></w:r></w:p>
+    <w:sectPr/>
+  </w:body>
+</w:document>
